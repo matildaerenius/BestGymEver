@@ -31,6 +31,7 @@ public class FileManagerTest {
     // Testar att hitta en kund med namn
     @Test
     public void testFindCustomerByName() throws IOException {
+        // Skapar en FileManager med en specifik testfil
         FileManager fileManager = new FileManager("src/test/testresources/test_customer_data.txt");
         List<Customer> customers = fileManager.readCustomers();
 
@@ -42,6 +43,7 @@ public class FileManagerTest {
     // Testar att hitta kund med personnummer
     @Test
     public void testFindCustomerBySocialSecurityNumber() throws IOException {
+        // Skapar en FileManager med en specifik testfil
         FileManager fileManager = new FileManager("src/test/testresources/test_customer_data.txt");
         List<Customer> customers = fileManager.readCustomers();
 
@@ -53,6 +55,7 @@ public class FileManagerTest {
     // Testar att söka efter en kund som inte finns
     @Test
     public void testFindNonExistentCustomer() throws IOException {
+        // Skapar en FileManager med en specifik testfil
         FileManager fileManager = new FileManager("src/test/testresources/test_customer_data.txt");
         List<Customer> customers = fileManager.readCustomers();
 

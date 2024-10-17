@@ -15,6 +15,7 @@ public class MemberControl {
         return lastPayment.isAfter(currentDate.minusYears(ONE_YEAR));
     }
 
+    // Metod för att kontrollera om kunden är en före detta medlem
     public static boolean isFormerMember(Customer customer, LocalDate currentDate) {
         LocalDate lastPayment = customer.getLastPayment();
         if (lastPayment == null) {
