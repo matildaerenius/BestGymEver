@@ -36,4 +36,9 @@ public class VisitLogger {
             throw e; // Kastar vidare exeptionet
         }
     }
+    // Metod kastar medvetet en IOException med ett felmeddelande
+    public void simulateIOException() throws IOException {
+        throw new IOException("Simulated IOException");
+    }
+
 }

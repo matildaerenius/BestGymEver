@@ -58,7 +58,8 @@ public class GymSystem {
     }
 
     public static void main(String[] args) {
-        GymSystem gymSystem = new GymSystem("src/main/resources/customer_data.txt", "src/main/resources/visit_log.txt");
+        GymSystem gymSystem = new GymSystem("src/main/resources/customer_data.txt",
+                "src/main/resources/visit_log.txt");
         gymSystem.start();
     }
 }

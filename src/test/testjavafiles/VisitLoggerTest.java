@@ -51,5 +51,22 @@ public class VisitLoggerTest {
         assertTrue(logLines.get(0).contains(expectedDateTime)); // Kontrollera att loggningen innehåller dagens datum
                                                                 // och tid i rätt format
     }
+
+    // Testar att metoden 'simulateIOException' kastar en IOException
+    @Test
+    public void testSimulatedIOException() {
+        VisitLogger visitLogger = new VisitLogger("src/test/testresources/log.txt");
+
+        Exception exception = assertThrows(IOException.class, () -> {
+            visitLogger.simulateIOException(); // Förväntas en IOException kastas
+        });
+
+        String expectedMessage = "Simulated IOException"; // Förväntat felmeddelande som IOException ska innehålla
+        String actualMessage = exception.getMessage(); // Hämtar det faktiska meddelandet från det kastade undantaget
+        assertTrue(actualMessage.contains(expectedMessage)); // Verifierar att det faktiska felmeddelandet innehåller
+                                                            // den förväntade texten
+    }
 }
+
+
 

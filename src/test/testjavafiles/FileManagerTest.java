@@ -62,4 +62,14 @@ public class FileManagerTest {
         Customer customer = fileManager.findCustomer(customers, "Nonexistent Name");
         assertNull(customer);
     }
+
+    // Testar om felaktigt datum hanteras korrekt
+    @Test
+    public void testInvalidDateFormatHandling() throws IOException {
+        FileManager fileManager = new FileManager("src/test/testresources/test_invalid_date.txt");
+        List<Customer> customers = fileManager.readCustomers();
+        assertEquals(2, customers.size()); // Endast 2 av 3 rader ska laddas korrekt
+
+        // Kontrollerar att felmeddelande skrivs ut i konsolen
+    }
 }
