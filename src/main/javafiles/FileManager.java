@@ -8,7 +8,7 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-// Ansvarar för att läsa in kunddata från filen och skapa en lista med kunder
+// Ansvarar för att läsa in kunddata från filen och skapa en lista med kunder.
 public class FileManager {
     private String fileName; // Privat variabel för att lagra namnet på filen som ska läsas
 

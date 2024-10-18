@@ -64,7 +64,7 @@ public class VisitLoggerTest {
         });
     }
 
-    // Testar att flera loggposter kan skrivas till filen
+    // Testar att flera loggposter kan skrivas till filen.
     @Test
     public void testMultipleLogEntries() throws IOException {
         Customer customer1 = new Customer("0107202905", "Matilda Erenius", LocalDate.now());

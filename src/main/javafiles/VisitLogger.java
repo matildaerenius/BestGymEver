@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-// Ansvarar för att logga träningsbesök till en fil
+// Ansvarar för att logga träningsbesök till en fil.
 public class VisitLogger {
     private String logFile; // Privat variabel för att lagra sökvägen till loggfilen
 

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FileManagerTest {
 
-    // Testar att korrekt kunddata laddas in från fil
+    // Testar att korrekt kunddata laddas in från fil.
     @Test
     public void testCorrectCustomerDataLoading() throws IOException {
         // Skapar en FileManager med en specifik testfil

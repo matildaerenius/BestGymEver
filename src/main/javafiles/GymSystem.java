@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
-// Huvudprogram
+// Huvudprogram.
 public class GymSystem {
     private FileManager fileManager; // Privat variabel för att hantera kunddata
     private VisitLogger visitLogger; // Privat variabel för att logga besök

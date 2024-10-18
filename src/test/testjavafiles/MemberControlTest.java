@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class MemberControlTest {
 
-    // Testar om en kund är en nuvarande kund
+    // Testar om en kund är en nuvarande kund.
     @Test
     public void testIsCurrentMember() {
         // Skapa en kund med en betalning som är 6 månader gammal
