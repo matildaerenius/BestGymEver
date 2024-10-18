@@ -72,4 +72,13 @@ public class FileManagerTest {
 
         // Kontrollerar att felmeddelande skrivs ut i konsolen
     }
+    // Testar att kasta IOException när filen inte finns
+    @Test
+    public void testIOExceptionOnMissingFile() {
+        FileManager fileManager = new FileManager("src/test/testresources/non_existent_file.txt");
+
+        assertThrows(IOException.class, () -> {
+            fileManager.readCustomers(); // Förväntas en IOException kastas
+        });
+    }
 }

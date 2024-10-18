@@ -31,14 +31,9 @@ public class VisitLogger {
         try {
             Files.write(Paths.get(logFile), List.of(logEntry), StandardOpenOption.APPEND);
             System.out.println("Training visits logged for: " + customer.getName()+ " at " + formattedDateTime);
-    } catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Error: Could not write to log file: " + logFile);
             throw e; // Kastar vidare exeptionet
         }
     }
-    // Metod kastar medvetet en IOException med ett felmeddelande
-    public void simulateIOException() throws IOException {
-        throw new IOException("Simulated IOException");
-    }
-
 }

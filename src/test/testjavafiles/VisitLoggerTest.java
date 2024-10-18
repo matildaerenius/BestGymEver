@@ -1,6 +1,7 @@
 package testjavafiles;
 
 import javafiles.Customer;
+import javafiles.FileManager;
 import javafiles.VisitLogger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,11 +38,11 @@ public class VisitLoggerTest {
         visitLogger.logTraining(customer); // Logga träning för kunden
 
         List<String> logLines = Files.readAllLines(logFilePath); // Läser alla rader från loggfilen
-        assertEquals(1, logLines.size());  // Kontrollerar att en rad har lagts till i loggfilen
-        assertTrue(logLines.get(0).contains("Matilda Erenius")); // Kontrollerar att loggningen innehåller kundens namn
-        assertTrue(logLines.get(0).contains("0107202905")); // Kontrollerar att loggningen innehåller kundens personnummer
-        assertTrue(logLines.get(0).contains(LocalDate.now().toString())); // Kontrollerar att loggningen innehåller
-                                                                        // dagens datum i rätt format
+        assertEquals(1, logLines.size());
+        assertTrue(logLines.get(0).contains("Matilda Erenius"));
+        assertTrue(logLines.get(0).contains("0107202905"));
+        assertTrue(logLines.get(0).contains(LocalDate.now().toString()));
+
 
         // Kontrollera att loggningen innehåller korrekt datum och tid
         LocalDateTime now = LocalDateTime.now();
@@ -49,24 +50,34 @@ public class VisitLoggerTest {
         String expectedDateTime = now.format(formatter);
 
         assertTrue(logLines.get(0).contains(expectedDateTime)); // Kontrollera att loggningen innehåller dagens datum
-                                                                // och tid i rätt format
+        // och tid i rätt format
     }
 
-    // Testar att metoden 'simulateIOException' kastar en IOException
+    // Testar att kasta IOException när filen inte finns
     @Test
-    public void testSimulatedIOException() {
-        VisitLogger visitLogger = new VisitLogger("src/test/testresources/log.txt");
+    public void testIOExceptionOnMissingFile() {
+        Customer customer = new Customer("0107202905", "Matilda Erenius", LocalDate.now());
+        VisitLogger visitlogger = new VisitLogger("src/test/testresources/non_existent_file.txt");
 
-        Exception exception = assertThrows(IOException.class, () -> {
-            visitLogger.simulateIOException(); // Förväntas en IOException kastas
+        assertThrows(IOException.class, () -> {
+            visitlogger.logTraining(customer); // Förväntas en IOException kastas
         });
+    }
 
-        String expectedMessage = "Simulated IOException"; // Förväntat felmeddelande som IOException ska innehålla
-        String actualMessage = exception.getMessage(); // Hämtar det faktiska meddelandet från det kastade undantaget
-        assertTrue(actualMessage.contains(expectedMessage)); // Verifierar att det faktiska felmeddelandet innehåller
-                                                            // den förväntade texten
+    // Testar att flera loggposter kan skrivas till filen
+    @Test
+    public void testMultipleLogEntries() throws IOException {
+        Customer customer1 = new Customer("0107202905", "Matilda Erenius", LocalDate.now());
+        Customer customer2 = new Customer("0012014122", "Rose Philipsen", LocalDate.now());
+
+        VisitLogger visitLogger = new VisitLogger(logFilePath.toString());
+        visitLogger.logTraining(customer1);
+        visitLogger.logTraining(customer2);
+
+        List<String> logLines = Files.readAllLines(logFilePath);
+        assertEquals(2, logLines.size()); // Kontrollera att två rader har lagts till
+
+        assertTrue(logLines.get(0).contains("Matilda Erenius"));
+        assertTrue(logLines.get(1).contains("Rose Philipsen"));
     }
 }
-
-
-

@@ -23,7 +23,7 @@ public class FileManager {
 
         try {
             List<String> lines = Files.readAllLines(Paths.get(fileName)); // Läser alla rader från filen och
-                                                                        // lagrar dom i en lista av strängar
+            // lagrar dom i en lista av strängar
 
             // Varje kund post innehåller två rader (personnr, namn och betalningsdatum)
             for (int i = 0; i < lines.size(); i+=2) {
