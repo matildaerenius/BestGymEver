@@ -5,4 +5,4 @@ A current member (paid membership within the last year),
 A former member (paid more than a year ago),
 Or not a member (person not found in the file).
 
-Additionally, the program should log visits of paying members (name, personal number, and visit date) in a separate file for the personal trainer to track client workout frequency.
+Additionally, the program log visits of paying members (name, personal number, visit date and time) in a separate file for the personal trainer to track client workout frequency.
