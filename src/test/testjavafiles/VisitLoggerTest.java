@@ -1,7 +1,6 @@
 package testjavafiles;
 
 import javafiles.Customer;
-import javafiles.FileManager;
 import javafiles.VisitLogger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class VisitLoggerTest {
+
     // Definierar sökvägen till loggfilen som ska användas i testerna
     private Path logFilePath = Paths.get("src/test/testresources/test_visit_log.txt");
 
@@ -64,12 +64,14 @@ public class VisitLoggerTest {
         });
     }
 
-    // Testar att flera loggposter kan skrivas till filen.
+    // Testar att flera loggposter kan skrivas till filen
     @Test
     public void testMultipleLogEntries() throws IOException {
+        // Skapar två kunder
         Customer customer1 = new Customer("0107202905", "Matilda Erenius", LocalDate.now());
         Customer customer2 = new Customer("0012014122", "Rose Philipsen", LocalDate.now());
 
+        // Loggar kunderna till filen
         VisitLogger visitLogger = new VisitLogger(logFilePath.toString());
         visitLogger.logTraining(customer1);
         visitLogger.logTraining(customer2);

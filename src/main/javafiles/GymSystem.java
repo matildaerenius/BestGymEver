@@ -5,12 +5,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
-// Huvudprogram.
+// Huvudprogram
 public class GymSystem {
     private FileManager fileManager; // Privat variabel för att hantera kunddata
     private VisitLogger visitLogger; // Privat variabel för att logga besök
 
-    // Konstruktor för att initisera kund och logghanterare med filnamn
+    // Konstruktor för att initiera kund och logghanterare med filnamn
     public GymSystem(String customerFile, String visitLogFile) {
         this.fileManager = new FileManager(customerFile);
         this.visitLogger = new VisitLogger(visitLogFile);
@@ -22,7 +22,7 @@ public class GymSystem {
             List<Customer> customers = fileManager.readCustomers();
             Scanner scanner = new Scanner(System.in);
 
-            // Kör loopen tills användaren vill avsluta
+            // Loopar tills användaren vill avsluta
             while (true) {
                 String input = promptUserForInput(scanner);
                 if (input.equalsIgnoreCase("exit")) {
@@ -36,13 +36,13 @@ public class GymSystem {
         }
     }
 
-    // Prompta användaren för inmatning
+    // Metod för att ta emot användarinmatning
     private String promptUserForInput(Scanner scanner) {
         System.out.print("\nEnter your customer's social security number or name: ");
         return scanner.nextLine().trim();
     }
 
-    // Hantera kundsökning och medlemskap
+    // Metod för att hantera kundsökning och medlemskap
     private void handleCustomerSearch(List<Customer> customers, String input) {
         Customer customer = fileManager.findCustomer(customers, input);
         LocalDate currentDate = LocalDate.now();
@@ -59,7 +59,7 @@ public class GymSystem {
         }
     }
 
-    // Hantera besök av nuvarande medlemmar
+    // Metod för att hantera besök av nuvarande medlemmar
     private void handleCurrentMember(Customer customer) {
         System.out.println("The customer is a current member");
         try {

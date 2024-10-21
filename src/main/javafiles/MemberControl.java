@@ -2,7 +2,7 @@ package javafiles;
 
 import java.time.LocalDate;
 
-// Hanterar logiken för att angöra vilken kategori en kund tillhör.
+// Hanterar logiken för att angöra vilken kategori en kund tillhör
 public class MemberControl {
     private static final int ONE_YEAR = 1;
 

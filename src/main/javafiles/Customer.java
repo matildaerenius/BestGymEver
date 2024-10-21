@@ -2,8 +2,9 @@ package javafiles;
 
 import java.time.LocalDate;
 
-// Representerar en kund med dess attribut.
+// Representerar en kund med dess attribut
 public class Customer {
+
     // Privata variabler som representerar en kund
     private String socialSecurityNumber;
     private String name;
